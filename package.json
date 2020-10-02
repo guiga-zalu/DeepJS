@@ -1,0 +1,14 @@
+{
+	"name": "deep",
+	"version": "1.0.0",
+	"description": "Deep, Convolutional and Deconvolutional Networks, in JS",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Guilherme Alves C Zaluchi <dev@guilherme.zaluchi.com.br>",
+	"license": "ISC",
+	"dependencies": {
+		"mnist": "^1.1.0"
+	}
+}

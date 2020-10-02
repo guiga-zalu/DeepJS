@@ -1,0 +1,1 @@
+module.exports = 1e-6;

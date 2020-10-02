@@ -1,0 +1,45 @@
+Separando MNIST: 27.798ms
+null
+Criando Rede Neural Convolutiva: 41.126ms
+
+--- Treinando pela 1ª vez ---
+[Rodada 0] Desvio Médio: 0.023% | Acurácia: 0%
+[Rodada 100] Desvio Médio: 2.252% | Acurácia: 18%
+[Rodada 200] Desvio Médio: 1.818% | Acurácia: 42%
+[Rodada 300] Desvio Médio: 1.543% | Acurácia: 58%
+[Rodada 400] Desvio Médio: 1.274% | Acurácia: 70%
+[Rodada 500] Desvio Médio: 1.238% | Acurácia: 68%
+[Rodada 600] Desvio Médio: 1.093% | Acurácia: 73%
+[Rodada 700] Desvio Médio: 1.113% | Acurácia: 73%
+[Rodada 800] Desvio Médio: 0.988% | Acurácia: 77%
+[Rodada 900] Desvio Médio: 0.983% | Acurácia: 75%
+
+--- Treinando pela 2ª vez ---
+[Rodada 0] Desvio Médio: 0.009% | Acurácia: 1%
+[Rodada 100] Desvio Médio: 0.911% | Acurácia: 75%
+[Rodada 200] Desvio Médio: 0.823% | Acurácia: 84%
+[Rodada 300] Desvio Médio: 0.721% | Acurácia: 84%
+[Rodada 400] Desvio Médio: 0.664% | Acurácia: 86%
+[Rodada 500] Desvio Médio: 0.813% | Acurácia: 81%
+[Rodada 600] Desvio Médio: 0.721% | Acurácia: 82%
+[Rodada 700] Desvio Médio: 0.753% | Acurácia: 83%
+[Rodada 800] Desvio Médio: 0.699% | Acurácia: 81%
+[Rodada 900] Desvio Médio: 0.753% | Acurácia: 80%
+
+--- Treinando pela 3ª vez ---
+[Rodada 0] Desvio Médio: 0.005% | Acurácia: 1%
+[Rodada 100] Desvio Médio: 0.766% | Acurácia: 81%
+[Rodada 200] Desvio Médio: 0.705% | Acurácia: 85%
+[Rodada 300] Desvio Médio: 0.606% | Acurácia: 86%
+[Rodada 400] Desvio Médio: 0.568% | Acurácia: 92%
+[Rodada 500] Desvio Médio: 0.728% | Acurácia: 83%
+[Rodada 600] Desvio Médio: 0.635% | Acurácia: 82%
+[Rodada 700] Desvio Médio: 0.659% | Acurácia: 87%
+[Rodada 800] Desvio Médio: 0.619% | Acurácia: 82%
+[Rodada 900] Desvio Médio: 0.683% | Acurácia: 84%
+Treinando: 537216.177ms
+
+--- Testando a RNC ---
+Testando: 1657.219ms
+Desvio do Teste: 0.606
+Acurácia do Teste: 90%
