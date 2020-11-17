@@ -1,6 +1,5 @@
 const Vector = require('./Vector'),
-	Matrix = require('./Matrix'),
-	mean = require('./mean');
+	Matrix = require('./Matrix');
 
 let fns = [
 	function toDiagonalMatrix(){
@@ -59,98 +58,16 @@ for(let fn of fns)
 		value: fn
 	});
 
-//random = () => 1 - (Math.tanh((2 * Math.random() - 1) * (1 / Math.random() - 1)) ** 2);
-const random = () => 2 * Math.random() - 1;
 
-class IMGData{
-	constructor(data, ...dims){
-		this.dims = Array.from(dims).map(v => v | 0);
-		this.data = data ? (
-			Array.isArray(data) ? data : Array.from(data)
-		) : Array.from({ length: this.computedDims[this.space] }).fill(0);
-	}
-	get length(){ return this.data.length; }
-	get dims(){ return this[IMGData.DIMS]; }
-	get width(){ return this[IMGData.DIMS][0]; }
-	get height(){ return this[IMGData.DIMS][1]; }
-	get channels(){ return this[IMGData.DIMS][2]; }
-	get space(){ return this[IMGData.DIMS].length; }
-	set dims(x){
-		this[IMGData.DIMS] = x.map(x => x | 0);
-		this.computeDims();
-	}
-	set width(x){
-		this[IMGData.DIMS][0] = x | 0;
-		this.computeDims();
-	}
-	set height(x){
-		this[IMGData.DIMS][1] = x | 0;
-		this.computeDims();
-	}
-	set channels(x){
-		this[IMGData.DIMS][2] = x | 0;
-		this.computeDims();
-	}
-	
-	computeDims(){
-		var { dims, space } = this, spm1 = space - 1;
-		var c = this.computedDims = Array.from({ length: space }).fill(1);
-		
-		for(var i = 0, j; i < spm1; i++){
-			for(j = i + 1; j < space; j++)
-				c[j] *= dims[i];
-		}
-		c.push(c[spm1] * dims[spm1]);
-	}
-	/**
-	 * img.px(7, 1, 2):
-	 * x: 7, y: 1, ch: 2
-	 * index = 0
-	 * index += img.width * img.height * ch
-	 * index += img.width * y
-	 * index += x
-	 * 
-	 * index = 0
-	 * index += dims[0] * dims[1] * ch
-	 * index += dims[0] * y
-	 * index += 1 * x
-	 * 
-	 * c = [1, dims[0], dims[0] * dims[1]]
-	 */
-	px(...coords){
-		return this.data[this.index(coords)];
-	}
-	pxSet(val, ...coords){
-		return (this.data[this.index(coords)] = val);
-	}
-	index(coords){
-		const { computedDims: comp, dims, space } = this;
-		coords = coords.map((v, i) => +v % dims[i]);
-		
-		var index = 0;
-		for(let i = space - 1; i >= 0; i--)
-			index += coords[i] * comp[i];
-		return index;
-	}
-	coords(index = 0){
-		index %= this.length;
-		
-		const { computedDims: comp, space } = this;
-		
-		var coords = [], mod, c;
-		for(var i = 0; i < space; i++){
-			c = comp[i + 1];
-			mod = index % c;
-			coords.push(mod / comp[i]);
-			index -= mod;
-		}
-		return coords;
-	}
-	slice(coords, length){
-		var index = this.index(coords);
-		return this.data.slice(index, index + length);
-	}
-}
-IMGData.DIMS = Symbol("DIMS");
-
-module.exports = { Vector, Matrix, random, IMGData, mean };
+module.exports = {
+	Vector,
+	Matrix,
+	random(min = -1, max = 1){
+		return Math.random() * (max - min) + min;
+	},
+	randomer(min = -1, max = 1){
+		return () => Math.random() * (max - min) + min;
+	},
+	IMGData: require('./IMGData'),
+	mean: require('./mean')
+};

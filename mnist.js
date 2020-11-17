@@ -1,5 +1,7 @@
-const	{ CNN, Vector, IMGData } = require('./index'),
-		{ mean: { hiperbolic } } = require('./math/index'),
+const	fs = require('fs'),
+		{ CNN } = require('./index'),
+		{ mean: { hiperbolic }, Vector, IMGData } = require('./math/index'),
+		{ save } = require('./libs'),
 		mnist = require('mnist'),
 		BATCH_SIZE = 1e2,
 		TIMES_TO_TRAIN = 3,
@@ -13,7 +15,7 @@ console.timeEnd('Separando MNIST');
 
 console.time('Criando Rede Neural Convolutiva');
 var	conv = new CNN.Layer(8),
-	pool = new CNN.PoolMax(2),
+	pool = new CNN.Pool(2),
 	softmax = new CNN.Softmax(13 * 13 * 8, 10);
 
 //var output;
@@ -130,3 +132,9 @@ console.timeEnd('Testando');
 
 console.log('Desvio do Teste: %s', (totalLoss / LEN_TEST).toFixed(3));
 console.log('Acurácia do Teste: %d%%', 1e2 * corrects / LEN_TEST);
+
+var data = {
+	conv: conv.save(), pool: pool.save(), softmax: softmax.save()
+};
+
+fs.writeFileSync('./treinado.json', save(data));

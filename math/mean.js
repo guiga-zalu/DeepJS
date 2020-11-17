@@ -10,6 +10,13 @@ function hiperbolic(x){
 function quadratic(x){
 	return Math.sqrt(x.reduce((s, a) => s + a ** 2, 0) / x.length);
 }
+/**
+ * Builds a composite mean
+ *
+ * @param { (x: number) => number } f
+ * @param { (x: number) => number } f_inv
+ * @returns { (x: number[]) => number }
+ */
 function build(f, f_inv){
 	return x => f_inv(x.reduce((s, a) => s + f(a), 0) / x.length);
 }

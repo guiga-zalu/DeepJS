@@ -1,0 +1,15 @@
+c:\work\projetos\deep\cnn.js:369
+			grad_L_t = grad_out_t.x(g).toMatrix('col'),
+			                           ^
+
+TypeError: grad_out_t.x(...).toMatrix is not a function
+    at Softmax.backprop (c:\work\projetos\deep\cnn.js:369:31)
+    at backprop (c:\work\projetos\deep\mnist.js:67:17)
+    at train (c:\work\projetos\deep\mnist.js:81:2)
+    at Object.<anonymous> (c:\work\projetos\deep\mnist.js:107:23)
+    at Module._compile (node:internal/modules/cjs/loader:1083:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1112:10)
+    at Module.load (node:internal/modules/cjs/loader:948:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:789:14)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:72:12)
+    at node:internal/main/run_main_module:17:47

@@ -105,7 +105,8 @@ class PreMatrix{
 	multiply(matrix){
 		var { elements: e, constructor: ctn } = this, { length: n } = e;
 		if(n === 0) return null;
-		if(!matrix.elements) return this.map(x => x * matrix);
+		if(!(typeof matrix === 'object' && 'elements' in matrix))
+			return this.map(x => x * matrix);
 		
 		var returnVector = !!matrix.modulus;
 		var M = matrix.elements || matrix;

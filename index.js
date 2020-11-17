@@ -1,6 +1,5 @@
 const { Deep, DeepPart } = require('./deep'),
-	CNN = require('./cnn'),
-	{ Matrix, Vector, IMGData } = require('./math/index');
+	CNN = require('./cnn');
 
 class RNN extends Deep{}
 
@@ -32,4 +31,4 @@ class VAE extends Deep{
 }
 class URE extends Deep{}
 
-module.exports = { Deep, RNN, CNN, DNN, GAN, VAE, URE, Matrix, Vector, IMGData };
+module.exports = { Deep, RNN, CNN, DNN, GAN, VAE, URE };

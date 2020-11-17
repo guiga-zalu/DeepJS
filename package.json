@@ -1,5 +1,5 @@
 {
-	"name": "deep",
+	"name": "@zaluchi/deep",
 	"version": "1.0.0",
 	"description": "Deep, Convolutional and Deconvolutional Networks, in JS",
 	"main": "index.js",
