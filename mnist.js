@@ -5,12 +5,15 @@ const	fs = require('fs'),
 		mnist = require('mnist'),
 		BATCH_SIZE = 1e2,
 		TIMES_TO_TRAIN = 3,
-		LEN_TEST = 10,
+		LEN_TEST = 1e3,
 		LEN_TRAIN = 1e3;//+10;
 
 //const img = mnist[random() * 9 | 0].get(random() * 1e3 | 0);
 console.time('Separando MNIST');
-const { training, test } = mnist.set(BATCH_SIZE * (LEN_TRAIN / BATCH_SIZE | 0), LEN_TEST);
+const { training, test } = mnist.set(
+	BATCH_SIZE * (LEN_TRAIN / BATCH_SIZE | 0),
+	LEN_TEST
+);
 console.timeEnd('Separando MNIST');
 
 console.time('Criando Rede Neural Convolutiva');
